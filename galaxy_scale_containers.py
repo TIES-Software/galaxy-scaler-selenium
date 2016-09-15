@@ -38,7 +38,7 @@ class GalaxyScaleContainers(unittest.TestCase):
 
     wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#render-target > span > div > div.content-wrapper > span > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td.lower-column.primary > div > div:nth-child(2) > div > div:nth-child(1) > a")))
 
-    driver.get(self.GALAXY_URL + "/app/" + self.GALAXY_APP_DOMAIN)
+    driver.get(self.GALAXY_URL + "app/" + self.GALAXY_APP_DOMAIN)
 
     wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div.cardinal-number.editable > div > input[type=number]")))
     num_containers = driver.find_element_by_css_selector("div.cardinal-number.editable > div > input[type=number]")
