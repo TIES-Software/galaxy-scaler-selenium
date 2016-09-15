@@ -32,11 +32,11 @@ class GalaxyScaleContainers(unittest.TestCase):
     password_elem = driver.find_element_by_name("password")
     password_elem.send_keys(self.GALAXY_PASS)
 
-    login_submit_elem = driver.find_element_by_css_selector("#render-target > span > div > div > div > form > button > span.rest")
+    login_submit_elem = driver.find_element_by_css_selector("form > button > span.rest")
     login_submit_elem.click()
 
 
-    wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#render-target > span > div > div.content-wrapper > span > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td.lower-column.primary > div > div:nth-child(2) > div > div:nth-child(1) > a")))
+    wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".app-list a")))
 
     driver.get(self.GALAXY_URL + "app/" + self.GALAXY_APP_DOMAIN)
 
@@ -48,7 +48,7 @@ class GalaxyScaleContainers(unittest.TestCase):
     num_containers.send_keys(Keys.BACK_SPACE)
     num_containers.send_keys(self.new_num_containers)
     num_containers.send_keys(Keys.RETURN)
-    wait.until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, "#render-target > span > div > div.content-wrapper > span > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td.lower-column.secondary > div > div.activity-list > div > span > div:nth-child(1) > div > div.description > span > span > em"), self.new_num_containers))
+    wait.until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, "div.description > span > span > em"), self.new_num_containers))
 
   def tearDown(self):
     self.driver.close()
