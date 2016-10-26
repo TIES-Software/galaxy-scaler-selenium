@@ -14,7 +14,7 @@ class GalaxyScaleContainers(unittest.TestCase):
     self.new_num_containers = new_num_containers
 
   def setUp(self):
-    self.driver = webdriver.Chrome()
+    self.driver = webdriver.Chrome(os.environ['CHROME_DRIVER_DIR'])
     self.GALAXY_USER = os.environ['GALAXY_USER']
     self.GALAXY_PASS = os.environ['GALAXY_PASS']
     self.GALAXY_URL = os.environ['GALAXY_URL']
